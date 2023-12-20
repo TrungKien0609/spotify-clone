@@ -33,7 +33,6 @@ export const UploadModal = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-    console.log("hello")
     try {
       setIsLoading(true)
       const imageFile = values.image?.[0];
@@ -61,6 +60,7 @@ export const UploadModal = () => {
         upsert: false
       }
     )
+    console.log("imageError", imageError)
     if(imageError) {
       setIsLoading(false)
       return toast.error("Failed image upload.")
